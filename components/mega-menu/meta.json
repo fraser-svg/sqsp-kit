@@ -2,12 +2,14 @@
   "id": "mega-menu",
   "title": "Mega menu",
   "category": "navigation",
-  "targets": ["7.1"],
+  "targets": [
+    "7.1"
+  ],
   "mode": "augment",
   "target": "body",
   "source": "hand-authored",
-  "licence": "own — safe to publish",
-  "notes": "Augments the real Squarespace header nav. Hand-built rather than converted: focus handling and ARIA are not safe to machine-translate from React.",
+  "licence": "own \u2014 safe to publish",
+  "notes": "Augments the real Squarespace header nav. Hand-built rather than converted: focus handling and ARIA are not safe to machine-translate from React. DESKTOP ONLY BY DESIGN \u2014 hidden below 768px, because Squarespace's mobile nav is a separate overlay DOM that this component does not touch. Mobile visitors get the site's normal menu, which is the correct fallback, not a bug.",
   "options": {
     "menus": "array of { match, columns: [{ title, links: [{label, href, description}] }] }",
     "width": "content|full (default content)",

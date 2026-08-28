@@ -31,8 +31,16 @@ node scripts/gen-client.mjs <slug>
 Prints the exact Header and Footer snippets to paste. Requires the **Core plan or above** —
 Code Injection is not available on Basic.
 
-The bundle URL is pinned to a tag; the config URL is not. Edit `clients/<slug>.json`, push,
-and the site updates with no re-paste. A Squarespace change can never break a client site
+Config is **inlined into the Header block** by default. jsDelivr serves branch paths with
+`max-age=604800, s-maxage=43200`, so a config fetched from the CDN is stale for up to 12
+hours at the edge and a week in a returning visitor's browser — "edit the JSON and the site
+updates" simply isn't true there. Inline config changes the moment you save the panel.
+
+`--fetch` switches to the hosted-config form for when one config serves many sites and a
+day's lag is acceptable; `node scripts/purge.mjs <slug>` clears jsDelivr's edge copy, though
+it cannot clear browsers.
+
+The bundle stays pinned to a tag, so a Squarespace change can never break a client site
 without you moving them to a new tag deliberately.
 
 ## Develop

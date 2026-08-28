@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>sqsp-kit — viewport check</title>
+<!-- Real viewports, not a CSS max-width: each iframe has its own matchMedia, so
+     Tailwind's md: utilities resolve against the frame width. Chrome's headless
+     window has a 500px floor, which is why this exists. -->
+<style>
+  body { margin:0; font:12px ui-monospace,monospace; background:#f4f4f5; display:flex; gap:16px; padding:16px; align-items:flex-start; }
+  figure { margin:0; }
+  figcaption { padding:6px 2px; color:#555; }
+  iframe { border:1px solid #ddd; background:#fff; display:block; }
+</style>
+<figure><figcaption>390 × 900</figcaption><iframe src="./index.html" width="390" height="900"></iframe></figure>
+<figure><figcaption>768 × 900</figcaption><iframe src="./index.html" width="768" height="900"></iframe></figure>

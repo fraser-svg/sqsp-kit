@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>sqsp-kit harness</title>
+<title>sqsp-kit harness — data-config fetch path</title>
 <link rel="stylesheet" href="../dist/kit.min.css">
 <style>
   /* Approximation of the Squarespace 7.1 page shell: a header with .header-nav-item
@@ -16,14 +16,6 @@
   .header-nav { display:flex; gap:28px; }
   .header-nav-item a { color:#111; text-decoration:none; font-size:15px; padding:8px 0; display:inline-block; }
   .page-section { max-width:1200px; margin:0 auto; padding:0 32px; }
-  /* Squarespace collapses the nav to a burger on mobile; without this the
-     harness's own nav forces the page wider than the viewport and every
-     component looks broken for reasons that are not the component's fault. */
-  @media (max-width: 767px) {
-    .header-nav { display:none; }
-    .header-inner, .page-section { padding-left:20px; padding-right:20px; }
-    .header-inner::after { content:"\2261"; font-size:22px; }
-  }
   .page-section + .page-section { border-top:1px solid #f0f0f0; }
   .harness-bar { position:fixed; bottom:12px; left:12px; z-index:99999; font:12px/1.4 ui-monospace,monospace; color:#666; background:#fff; border:1px solid #ddd; padding:8px 10px; border-radius:6px; }
   .native { font-size:15px; line-height:1.6; color:#444; max-width:60ch; }
@@ -46,7 +38,7 @@
 <!-- native Squarespace-ish content: proves the kit's CSS does not touch it -->
 <section class="page-section" data-section-id="native-copy">
   <div style="padding:48px 0">
-    <h1 style="font-size:34px;margin:0 0 12px">Native section (not ours)</h1>
+    <h1 style="font-size:34px;margin:0 0 12px">Native section (not ours) — config fetched over HTTP</h1>
     <p class="native">This block is styled by the host page only. If the kit's stylesheet leaks, this text changes. It should not.</p>
   </div>
 </section>
@@ -62,47 +54,8 @@
 
 <script>
   window.__SK_DEBUG__ = true   // warn() is silent otherwise; mount failures would be invisible
-  window.SQSPKIT = {
-    theme: { primary: "24 94% 50%", radius: "14px" },
-    components: [
-      { id: "hero-split", target: "hero", options: {
-          eyebrow: "Independent studio",
-          heading: "Design systems, delivered onto Squarespace.",
-          body: "Components sourced from anywhere, converted once, and mounted on any client site from a single hosted bundle.",
-          ctaLabel: "Start a project", ctaHref: "/contact",
-          secondaryLabel: "See work", secondaryHref: "/work",
-          image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70"
-      }},
-      { id: "logo-marquee", target: "logos", options: {
-          speed: 26,
-          logos: [
-            { src: "https://cdn.simpleicons.org/squarespace/111111", alt: "Squarespace" },
-            { src: "https://cdn.simpleicons.org/tailwindcss/111111", alt: "Tailwind" },
-            { src: "https://cdn.simpleicons.org/figma/111111", alt: "Figma" },
-            { src: "https://cdn.simpleicons.org/react/111111", alt: "React" },
-            { src: "https://cdn.simpleicons.org/stripe/111111", alt: "Stripe" },
-            { src: "https://cdn.simpleicons.org/webflow/111111", alt: "Webflow" }
-          ]
-      }},
-      { id: "mega-menu", mode: "augment", target: "body", options: {
-          menus: [{ match: "Services", columns: [
-            { title: "Build", links: [
-              { label: "Website design", href: "/services/design", description: "Strategy through launch" },
-              { label: "Squarespace builds", href: "/services/squarespace", description: "7.1, custom coded" }]},
-            { title: "Grow", links: [
-              { label: "SEO", href: "/services/seo", description: "Local and technical" },
-              { label: "Content", href: "/services/content", description: "Written to convert" }]},
-            { title: "Care", links: [
-              { label: "Maintenance", href: "/services/care" },
-              { label: "Hosting", href: "/services/hosting" }]},
-            { title: "Company", links: [
-              { label: "About", href: "/about" },
-              { label: "Contact", href: "/contact" }]}
-          ]}]
-      }}
-    ]
-  }
+  // config deliberately absent: this page proves the data-config fetch path
 </script>
-<script src="../dist/kit.min.js"></script>
+<script src="../dist/kit.min.js" data-config="../clients/harness.json"></script>
 </body>
 </html>

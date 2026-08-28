@@ -1,0 +1,125 @@
+{
+  "theme": {
+    "primary": "24 94% 50%",
+    "radius": "14px"
+  },
+  "components": [
+    {
+      "id": "hero-split",
+      "target": "hero",
+      "options": {
+        "eyebrow": "Independent studio",
+        "heading": "Design systems, delivered onto Squarespace.",
+        "body": "Components sourced from anywhere, converted once, and mounted on any client site from a single hosted bundle.",
+        "ctaLabel": "Start a project",
+        "ctaHref": "/contact",
+        "secondaryLabel": "See work",
+        "secondaryHref": "/work",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70"
+      }
+    },
+    {
+      "id": "logo-marquee",
+      "target": "logos",
+      "options": {
+        "speed": 26,
+        "logos": [
+          {
+            "src": "https://cdn.simpleicons.org/squarespace/111111",
+            "alt": "Squarespace"
+          },
+          {
+            "src": "https://cdn.simpleicons.org/tailwindcss/111111",
+            "alt": "Tailwind"
+          },
+          {
+            "src": "https://cdn.simpleicons.org/figma/111111",
+            "alt": "Figma"
+          },
+          {
+            "src": "https://cdn.simpleicons.org/react/111111",
+            "alt": "React"
+          },
+          {
+            "src": "https://cdn.simpleicons.org/stripe/111111",
+            "alt": "Stripe"
+          },
+          {
+            "src": "https://cdn.simpleicons.org/webflow/111111",
+            "alt": "Webflow"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mega-menu",
+      "mode": "augment",
+      "target": "body",
+      "options": {
+        "menus": [
+          {
+            "match": "Services",
+            "columns": [
+              {
+                "title": "Build",
+                "links": [
+                  {
+                    "label": "Website design",
+                    "href": "/services/design",
+                    "description": "Strategy through launch"
+                  },
+                  {
+                    "label": "Squarespace builds",
+                    "href": "/services/squarespace",
+                    "description": "7.1, custom coded"
+                  }
+                ]
+              },
+              {
+                "title": "Grow",
+                "links": [
+                  {
+                    "label": "SEO",
+                    "href": "/services/seo",
+                    "description": "Local and technical"
+                  },
+                  {
+                    "label": "Content",
+                    "href": "/services/content",
+                    "description": "Written to convert"
+                  }
+                ]
+              },
+              {
+                "title": "Care",
+                "links": [
+                  {
+                    "label": "Maintenance",
+                    "href": "/services/care"
+                  },
+                  {
+                    "label": "Hosting",
+                    "href": "/services/hosting"
+                  }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  {
+                    "label": "About",
+                    "href": "/about"
+                  },
+                  {
+                    "label": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

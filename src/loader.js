@@ -75,12 +75,15 @@ function mountConfigured(components) {
       const section = findSection(c.target)
       if (!section) return warn(`section "${c.target}" not found for "${c.id}"`)
       if (c.mode === 'augment') {
-        // component operates on the existing section rather than replacing it
+        // Component operates on the existing section rather than replacing it.
+        // Deliberately NOT guarded by MOUNTED: augment targets are long-lived
+        // elements (body, header) that survive AJAX navigation, so a guard here
+        // would permanently block re-mounting after Squarespace re-renders the
+        // thing we attached to. Augmenting components must be idempotent — they
+        // mark the elements they touch and skip those on re-run.
         section.classList.add('sk-root')
-        if (!MOUNTED.has(section)) {
-          try { registry[c.id]?.mount?.(section, c.options || {}); MOUNTED.add(section) }
-          catch (e) { warn(`augment failed for "${c.id}"`, e) }
-        }
+        try { registry[c.id]?.mount?.(section, c.options || {}) }
+        catch (e) { warn(`augment failed for "${c.id}"`, e) }
         return
       }
       let host = section.querySelector(':scope > [data-sk-host]')

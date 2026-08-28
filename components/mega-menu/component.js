@@ -35,7 +35,11 @@ export function mount(root, opts = {}) {
     const link = [...document.querySelectorAll(NAV_LINK)].find(
       (a) => a.textContent.trim().toLowerCase() === String(menu.match).trim().toLowerCase()
     )
-    if (!link || link.dataset.skMega) return
+    // Idempotency lives here, not in the loader: Squarespace can replace the
+    // header wholesale, taking our panel with it while leaving a stale marker
+    // on a nav link that is itself new. Both must still be present to skip.
+    if (!link) return
+    if (link.dataset.skMega && document.getElementById(`sk-mega-${i}`)) return
 
     const panel = buildPanel(menu, opts)
     panel.id = `sk-mega-${i}`
