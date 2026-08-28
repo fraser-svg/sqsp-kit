@@ -1,0 +1,22 @@
+/* The panel is appended to the header, not the nav item, so Squarespace's own
+ * overflow/stacking on .header-nav-item cannot clip it. */
+.sk-root .sk-mega-panel,
+.sk-mega-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  background: hsl(var(--sk-popover, 0 0% 100%));
+  color: hsl(var(--sk-popover-foreground, 222 47% 11%));
+  border-top: 1px solid hsl(var(--sk-border, 214 32% 91%));
+  box-shadow: 0 20px 40px -24px rgb(0 0 0 / .35);
+}
+.sk-mega-panel[data-open="true"] { opacity: 1; visibility: visible; transform: none; }
+.sk-mega-panel a { text-decoration: none; }
+.sk-mega-panel a:focus-visible { outline: 2px solid hsl(var(--sk-ring, 222 47% 11%)); outline-offset: 3px; }
+@media (max-width: 767px) { .sk-mega-panel { display: none; } }

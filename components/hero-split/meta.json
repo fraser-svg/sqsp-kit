@@ -1,0 +1,20 @@
+{
+  "id": "hero-split",
+  "title": "Split hero",
+  "category": "section",
+  "targets": ["7.1", "7.0"],
+  "mode": "fill",
+  "source": "hand-authored",
+  "licence": "own — safe to publish",
+  "options": {
+    "eyebrow": "string",
+    "heading": "string",
+    "body": "string",
+    "ctaLabel": "string",
+    "ctaHref": "string",
+    "secondaryLabel": "string",
+    "secondaryHref": "string",
+    "image": "url",
+    "reverse": "boolean"
+  }
+}

@@ -1,0 +1,43 @@
+/* Default token layer. Values are HSL channels (no hsl() wrapper) so Tailwind's
+ * <alpha-value> works. Per-client overrides are emitted by scripts/gen-client.mjs
+ * from the site's own palette and injected ahead of this file's cascade position
+ * by way of a higher-specificity .sk-root[data-sk-theme] block. */
+.sk-root {
+  --sk-background: 0 0% 100%;
+  --sk-foreground: 222 47% 11%;
+  --sk-card: 0 0% 100%;
+  --sk-card-foreground: 222 47% 11%;
+  --sk-popover: 0 0% 100%;
+  --sk-popover-foreground: 222 47% 11%;
+  --sk-primary: 222 47% 11%;
+  --sk-primary-foreground: 210 40% 98%;
+  --sk-secondary: 210 40% 96%;
+  --sk-secondary-foreground: 222 47% 11%;
+  --sk-muted: 210 40% 96%;
+  --sk-muted-foreground: 215 16% 47%;
+  --sk-accent: 210 40% 96%;
+  --sk-accent-foreground: 222 47% 11%;
+  --sk-destructive: 0 84% 60%;
+  --sk-destructive-foreground: 210 40% 98%;
+  --sk-border: 214 32% 91%;
+  --sk-input: 214 32% 91%;
+  --sk-ring: 222 47% 11%;
+  --sk-radius: 0.625rem;
+
+  /* Inherit the client's Squarespace typography by default; a client theme can
+   * override these with explicit stacks. */
+  --sk-font-sans: inherit;
+  --sk-font-heading: inherit;
+}
+
+/* Components opt into isolation explicitly rather than us resetting globally. */
+.sk-root { box-sizing: border-box; }
+.sk-root *, .sk-root *::before, .sk-root *::after { box-sizing: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-root *, .sk-root *::before, .sk-root *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

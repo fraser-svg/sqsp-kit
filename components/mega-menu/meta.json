@@ -1,0 +1,16 @@
+{
+  "id": "mega-menu",
+  "title": "Mega menu",
+  "category": "navigation",
+  "targets": ["7.1"],
+  "mode": "augment",
+  "target": "body",
+  "source": "hand-authored",
+  "licence": "own — safe to publish",
+  "notes": "Augments the real Squarespace header nav. Hand-built rather than converted: focus handling and ARIA are not safe to machine-translate from React.",
+  "options": {
+    "menus": "array of { match, columns: [{ title, links: [{label, href, description}] }] }",
+    "width": "content|full (default content)",
+    "trigger": "hover|click (default hover, always click on touch)"
+  }
+}

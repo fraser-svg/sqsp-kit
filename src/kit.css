@@ -1,0 +1,5 @@
+/* Tailwind entry. Tokens (src/tokens.css) and per-component CSS are concatenated
+ * by scripts/build.mjs — @import is deliberately avoided so the CSS stays a
+ * single request from jsDelivr. */
+@tailwind components;
+@tailwind utilities;

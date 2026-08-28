@@ -1,0 +1,7 @@
+/* Edge fade is a mask, not a gradient overlay, so it works on any background —
+ * the client's section colour shows through untouched. */
+.sk-root [data-sk-marquee][data-fade="true"] {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.sk-root [data-sk-marquee]:hover [data-sk-track] { animation-play-state: paused; }

@@ -1,0 +1,16 @@
+{
+  "id": "logo-marquee",
+  "title": "Scrolling logo marquee",
+  "category": "section",
+  "targets": ["7.1", "7.0"],
+  "mode": "fill",
+  "source": "hand-authored",
+  "licence": "own — safe to publish",
+  "options": {
+    "logos": "array of {src, alt, href}",
+    "speed": "seconds per loop (default 30)",
+    "grayscale": "boolean",
+    "fade": "boolean",
+    "height": "px logo height (default 40)"
+  }
+}

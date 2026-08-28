@@ -1,0 +1,36 @@
+{
+  "site": "example.squarespace.com",
+  "version": "7.1",
+  "notes": "Template config. Copy to <slug>.json per client. Section ids come from the live site's data-section-id attributes.",
+  "theme": {
+    "primary": "24 94% 50%",
+    "primary-foreground": "0 0% 100%",
+    "radius": "14px"
+  },
+  "components": [
+    {
+      "id": "hero-split",
+      "target": "PASTE-data-section-id-HERE",
+      "options": {
+        "eyebrow": "Eyebrow text",
+        "heading": "Main heading",
+        "body": "Supporting sentence.",
+        "ctaLabel": "Get in touch",
+        "ctaHref": "/contact",
+        "image": "https://images.squarespace-cdn.com/..."
+      }
+    },
+    {
+      "id": "logo-marquee",
+      "target": "PASTE-data-section-id-HERE",
+      "options": { "speed": 30, "grayscale": true, "logos": [] }
+    },
+    {
+      "id": "mega-menu",
+      "mode": "augment",
+      "target": "body",
+      "editor": false,
+      "options": { "menus": [] }
+    }
+  ]
+}
