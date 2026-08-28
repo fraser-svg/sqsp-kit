@@ -1,0 +1,40 @@
+{
+  "site": "your-trial-site.squarespace.com",
+  "version": "7.1",
+  "notes": "Smoke test for a live Squarespace site. hero-split and logo-marquee need real data-section-ids; mega-menu works as-is if a nav item is called Services.",
+  "theme": { "primary": "24 94% 50%", "primary-foreground": "0 0% 100%", "radius": "12px" },
+  "components": [
+    {
+      "id": "logo-marquee",
+      "target": "PASTE-A-data-section-id-HERE",
+      "options": {
+        "speed": 26,
+        "logos": [
+          { "src": "https://cdn.simpleicons.org/squarespace/111111", "alt": "Squarespace" },
+          { "src": "https://cdn.simpleicons.org/tailwindcss/111111", "alt": "Tailwind" },
+          { "src": "https://cdn.simpleicons.org/figma/111111", "alt": "Figma" },
+          { "src": "https://cdn.simpleicons.org/stripe/111111", "alt": "Stripe" }
+        ]
+      }
+    },
+    {
+      "id": "mega-menu",
+      "mode": "augment",
+      "target": "body",
+      "editor": false,
+      "options": {
+        "menus": [{
+          "match": "Services",
+          "columns": [
+            { "title": "Build", "links": [
+              { "label": "Website design", "href": "/services/design", "description": "Strategy through launch" },
+              { "label": "Squarespace builds", "href": "/services/squarespace", "description": "7.1, custom coded" }]},
+            { "title": "Grow", "links": [
+              { "label": "SEO", "href": "/services/seo", "description": "Local and technical" },
+              { "label": "Content", "href": "/services/content", "description": "Written to convert" }]}
+          ]
+        }]
+      }
+    }
+  ]
+}
