@@ -54,6 +54,20 @@ python3 -m http.server 4177    # then open /harness/index.html
 sections with `data-section-id` — so components are iterated locally instead of by
 republishing a client's site.
 
+## Test on a real site
+
+```sh
+node scripts/live-test.mjs https://<site>.squarespace.com [--password X] [--headed]
+```
+Playwright drives the live site and checks: the bundle loaded, components mounted, the
+mega menu opens on hover and closes on Escape, mounting survives client-side navigation,
+no console errors from the kit, our CSS matches none of the site's own elements, and no
+horizontal overflow on an iPhone viewport. It also prints every `data-section-id` on the
+page, which is what you paste into the client config as `target`. Screenshots land in `.live/`.
+
+Run it against `harness/index.html` first if a result looks surprising — that tells you
+whether the problem is the site or the script.
+
 ## Add a component
 
 ```

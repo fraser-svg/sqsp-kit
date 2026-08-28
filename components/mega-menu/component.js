@@ -90,6 +90,11 @@ export function mount(root, opts = {}) {
       if (openPanel.panel.contains(e.target) || openPanel.link.contains(e.target)) return
       closeAll()
     })
+    // Escape must work when the panel was opened by hover, where focus is still
+    // on <body> and never reaches the link's or panel's own keydown handler.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && openPanel) closeAll()
+    })
   }
 }
 
