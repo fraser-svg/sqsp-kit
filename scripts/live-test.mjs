@@ -37,7 +37,16 @@ const errors = []
 page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()) })
 page.on('pageerror', (e) => errors.push(String(e)))
 
-await page.goto(url, { waitUntil: 'domcontentloaded' })
+const response = await page.goto(url, { waitUntil: 'domcontentloaded' })
+
+// A trial site defaults to Private: Squarespace answers 401 with a "Private Site"
+// page that has no password field, so there is nothing to log into.
+if (response && response.status() === 401) {
+  const title = await page.title().catch(() => '')
+  console.error(`\nSite is PRIVATE (HTTP 401${title ? `, "${title}"` : ''}).`)
+  console.error('Squarespace: Settings > Site Availability > Public (or Password-protected, then pass --password).')
+  await browser.close(); process.exit(2)
+}
 
 // Squarespace's lock screen when the site is set to Password-protected
 if (password && (await page.locator('input[type="password"]').count())) {
